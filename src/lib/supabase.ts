@@ -10,9 +10,9 @@ import {
   WhatsAppTransmissionLog,
 } from '../types';
 
-export const DEFAULT_SUPABASE_URL = 'https://jvrxlvozsycphcaeaalw.supabase.co';
+export const DEFAULT_SUPABASE_URL = 'https://blhbmcgipmzxnewcfcia.supabase.co';
 export const DEFAULT_SUPABASE_ANON_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2cnhsdm96c3ljcGhjYWVhYWx3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4NDczMjYsImV4cCI6MjEwNjQyMzMyNn0.8X5oKVV_zZ0G0tgCfcZWh1gTT--1CpzfN4RGuP2dDNc';
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsaGJtY2dpcG16eG5ld2NmY2lhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk5ODY5NzksImV4cCI6MjEwNTU2Mjk3OX0.jXK5B0RsjLU0x4PzHE17BCCD4SP52gZuSZbinxdsys8';
 
 const SUPABASE_CONFIG_STORAGE_KEY = 'smks_supabase_config_v1';
 
