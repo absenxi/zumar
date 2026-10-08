@@ -1,0 +1,192 @@
+{
+  "entities": {
+    "settings": {
+      "title": "School Settings",
+      "description": "Stores school information, teacher details, homeroom leadership, department heads, and security password settings",
+      "type": "object",
+      "properties": {
+        "schoolName": { "type": "string" },
+        "foundationName": { "type": "string" },
+        "className": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "locationName": { "type": "string" },
+        "principalName": { "type": "string" },
+        "principalNip": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "teacherNip": { "type": "string" },
+        "headOfDepartment": { "type": "string" },
+        "headOfDepartmentNip": { "type": "string" },
+        "classLeader": { "type": "string" },
+        "signatureDate": { "type": "string" },
+        "schoolLat": { "type": "number" },
+        "schoolLng": { "type": "number" },
+        "allowedRadiusMeters": { "type": "number" },
+        "attendancePassword": { "type": "string" },
+        "adminPassword": { "type": "string" },
+        "superAdminPassword": { "type": "string" },
+        "requirePassword": { "type": "boolean" },
+        "homeroomTeacher": { "type": "string" },
+        "homeroomTeacherNip": { "type": "string" },
+        "studyProgram": { "type": "string" },
+        "semester": { "type": "string" },
+        "reportPlaceDate": { "type": "string" },
+        "whatsappGatewayProvider": { "type": "string" },
+        "whatsappApiToken": { "type": "string" },
+        "whatsappEndpointUrl": { "type": "string" },
+        "whatsappTestTarget": { "type": "string" },
+        "whatsappTestTargetType": { "type": "string" },
+        "whatsappTargetList": { "type": "array" },
+        "autoSendWhatsAppOnComplete": { "type": "boolean" },
+        "autoSendWhatsAppTargetId": { "type": "string" },
+        "autoSendWhatsAppTargetIds": { "type": "array" },
+        "autoSendWhatsAppCustomGreeting": { "type": "string" },
+        "lastAutoSentDate": { "type": "string" },
+        "whatsappGroupMessageTemplate": { "type": "string" },
+        "whatsappPersonalMessageTemplate": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolName", "className"]
+    },
+    "students": {
+      "title": "Students",
+      "description": "Stores student master data for the class including contact details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "no": { "type": "number" },
+        "name": { "type": "string" },
+        "gender": { "type": "string", "enum": ["L", "P"] },
+        "nisn": { "type": "string" },
+        "parentWhatsapp": { "type": "string" },
+        "address": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["id", "no", "name", "gender"]
+    },
+    "attendance": {
+      "title": "Monthly Attendance Records",
+      "description": "Stores attendance status grid for a specific year and month",
+      "type": "object",
+      "properties": {
+        "monthKey": { "type": "string" },
+        "records": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["monthKey"]
+    },
+    "homeroom_reports": {
+      "title": "Homeroom Monthly Reports",
+      "description": "Stores monthly homeroom teacher report data",
+      "type": "object",
+      "properties": {
+        "schoolName": { "type": "string" },
+        "homeroomTeacher": { "type": "string" },
+        "majorClass": { "type": "string" },
+        "month": { "type": "string" },
+        "attendancePercentage": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "teacher_agenda": {
+      "title": "Classroom Teacher Attendance and Agenda",
+      "description": "Stores teacher attendance, teaching periods, topics, and classroom agendas per month",
+      "type": "object",
+      "properties": {
+        "monthKey": { "type": "string" },
+        "entries": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["monthKey"]
+    },
+    "teachers": {
+      "title": "Teacher Master Database",
+      "description": "Master records of teachers including NIP, NUPTK, subject code, subject, contact, and employment status",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "nip": { "type": "string" },
+        "nuptk": { "type": "string" },
+        "name": { "type": "string" },
+        "gender": { "type": "string" },
+        "subject": { "type": "string" },
+        "phone": { "type": "string" },
+        "employmentStatus": { "type": "string" },
+        "activeStatus": { "type": "string" },
+        "homeroomClass": { "type": "string" },
+        "notes": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "subject"]
+    },
+    "subjects": {
+      "title": "Subjects Master Database",
+      "description": "Master records of curriculum subjects including code, category, allocation hours, and assigned teacher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "hoursPerWeek": { "type": "number" },
+        "defaultTeacherName": { "type": "string" },
+        "description": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "whatsapp_logs": {
+      "title": "WhatsApp Transmission Audit Logs",
+      "description": "Stores history and audit trail of WhatsApp messages transmitted through the gateway API",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "target": { "type": "string" },
+        "targetName": { "type": "string" },
+        "targetType": { "type": "string", "enum": ["group", "personal"] },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["success", "failed"] },
+        "responseMessage": { "type": "string" },
+        "sentBy": { "type": "string" },
+        "totalRecipients": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "target", "message", "status"]
+    }
+  },
+  "firestore": {
+    "/settings/{docId}": {
+      "schema": "settings",
+      "description": "School settings document"
+    },
+    "/students/{studentId}": {
+      "schema": "students",
+      "description": "Student master record"
+    },
+    "/teachers/{teacherId}": {
+      "schema": "teachers",
+      "description": "Teacher master record"
+    },
+    "/subjects/{subjectId}": {
+      "schema": "subjects",
+      "description": "Subject master record"
+    },
+    "/attendance/{monthKey}": {
+      "schema": "attendance",
+      "description": "Monthly attendance recap records"
+    },
+    "/homeroom_reports/{monthKey}": {
+      "schema": "homeroom_reports",
+      "description": "Homeroom teacher monthly report document"
+    },
+    "/teacher_agenda/{monthKey}": {
+      "schema": "teacher_agenda",
+      "description": "Teacher attendance and teaching agenda records per month"
+    },
+    "/whatsapp_logs/{logId}": {
+      "schema": "whatsapp_logs",
+      "description": "WhatsApp transmission audit log record"
+    }
+  }
+}

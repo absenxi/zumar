@@ -1,0 +1,8 @@
+{
+  "name": "Absensi SMKS Nusantara 1 Ciputat v4 github + supabase dedy",
+  "description": "Aplikasi Absensi Siswa SMKS Nusantara 1 Ciputat",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
